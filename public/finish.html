@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Tetonor</title>
+        <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+        <script src="javascripts/jquery.min.js"></script>
+        <script src="javascripts/socket.io.slim.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="finishPage">
+            <h1 id="message">Vous avez gagné !</h1>
+        </div>
+        <div>
+            <div class="score">Vous :&nbsp;<span id="yourScore"></span></div>
+            <div class="score">Votre adversaire :&nbsp;<span id="adversaryScore"></span></div>
+            <div class="score">
+                <a href="/">Réessayer</a>
+            </div>
+        </div>
+        <script>
+            const winner = parseInt(sessionStorage.getItem("winner"));
+            const scores = JSON.parse(sessionStorage.getItem("scores"));
+            const playerId = parseInt(sessionStorage.getItem("playerId"));
+            if (isNaN(winner)) {
+                $("#message").text("Egalité !");
+            } else if (winner === playerId) {
+                $("#message").text("Victoire !");
+            } else {
+                $("#message").text("Défaite !");
+            }
+            $("#yourScore").html(`${scores[playerId]}`);
+            $("#adversaryScore").html(`${scores[playerId === 1 ? 2 : 1]}`);
+            sessionStorage.clear();
+        </script>
+    </body>
+</html>

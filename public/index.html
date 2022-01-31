@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Tetonor</title>
+        <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+        <script src="javascripts/jquery.min.js"></script>
+        <script src="javascripts/socket.io.slim.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="waitingPage">
+            <h1>En attente d'un deuxième joueur...</h1>
+        </div>
+        <div id="gamePage" style="display: none">
+            <div class="score">Vous :&nbsp;<span id="yourScore"></span></div>
+            <div class="score">Votre adversaire :&nbsp;<span id="adversaryScore"></span></div>
+            <div class="pbRow">
+                <table class="pbCell number0">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="res" id="additionsNumber0">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="additionsNumber0Left">&nbsp;</td>
+                            <td class="operations" data-operation="add">+</td>
+                            <td class="operands" id="additionsNumber0Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="pbCell number1">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="Res" id="additionsNumber1">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="additionsNumber1Left">&nbsp;</td>
+                            <td class="operations" data-operation="add">+</td>
+                            <td class="operands" id="additionsNumber1Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="pbCell number2">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="Res" id="additionsNumber2">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="additionsNumber2Left">&nbsp;</td>
+                            <td class="operations" data-operation="add">+</td>
+                            <td class="operands" id="additionsNumber2Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="pbCell number3">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="Res" id="additionsNumber3">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="additionsNumber3Left">&nbsp;</td>
+                            <td class="operations" data-operation="add">+</td>
+                            <td class="operands" id="additionsNumber3Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="pbCell number4">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="Res" id="additionsNumber4">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="additionsNumber4Left">&nbsp;</td>
+                            <td class="operations" data-operation="add">+</td>
+                            <td class="operands" id="additionsNumber4Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="pbCell number5">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="Res" id="additionsNumber5">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="additionsNumber5Left">&nbsp;</td>
+                            <td class="operations" data-operation="add">+</td>
+                            <td class="operands" id="additionsNumber5Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pbRow">
+                <table class="pbCell number6">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="Res" id="multiplicationsNumber0">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="multiplicationsNumber0Left">&nbsp;</td>
+                            <td class="operations" data-operation="mul">*</td>
+                            <td class="operands" id="multiplicationsNumber0Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="pbCell number7">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="Res" id="multiplicationsNumber1">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="multiplicationsNumber1Left">&nbsp;</td>
+                            <td class="operations" data-operation="mul">*</td>
+                            <td class="operands" id="multiplicationsNumber1Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="pbCell number8">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="Res" id="multiplicationsNumber2">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="multiplicationsNumber2Left">&nbsp;</td>
+                            <td class="operations" data-operation="mul">*</td>
+                            <td class="operands" id="multiplicationsNumber2Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="pbCell number9">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="Res" id="multiplicationsNumber3">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="multiplicationsNumber3Left">&nbsp;</td>
+                            <td class="operations" data-operation="mul">*</td>
+                            <td class="operands" id="multiplicationsNumber3Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="pbCell number10">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="Res" id="multiplicationsNumber4">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="multiplicationsNumber4Left">&nbsp;</td>
+                            <td class="operations" data-operation="mul">*</td>
+                            <td class="operands" id="multiplicationsNumber4Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="pbCell number11">
+                    <tbody>
+                        <tr class="pbRes">
+                            <td class="Res" id="multiplicationsNumber5">&nbsp;</td>
+                        </tr>
+                        <tr class="pbCalc">
+                            <td class="operands" id="multiplicationsNumber5Left">&nbsp;</td>
+                            <td class="operations" data-operation="mul">*</td>
+                            <td class="operands" id="multiplicationsNumber5Right">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tableVal">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td draggable="true" class="gridNumbers" id="gridNumber0">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber1">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber2">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber3">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber4">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber5">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber6">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber7">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber8">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber9">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber10">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber11">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td draggable="true" class="gridNumbers" id="gridNumber12">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber13">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber14">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber15">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber16">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber17">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber18">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber19">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber20">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber21">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber22">&nbsp;</td>
+                            <td draggable="true" class="gridNumbers" id="gridNumber23">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="javascripts/site.js" type="text/javascript"></script>
+    </body>
+</html>

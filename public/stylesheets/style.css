@@ -1,0 +1,66 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+#waitingPage {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+    display: flex;
+}
+
+#finishPage {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+    display: flex;
+}
+
+.score {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+    display: flex;
+}
+
+.tableVal,
+.pbRow {
+    justify-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.gridNumbers {
+    height: 60px;
+    width: 100px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.operands,
+.operations {
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    height: 28px;
+    width: 25px;
+    border: 1px solid #000000;
+}
+
+.pbRes {
+    height: 30px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.pbCell {
+    height: 60px;
+    width: 100px;
+    margin: 20px;
+    border: 1px solid #000000;
+}
